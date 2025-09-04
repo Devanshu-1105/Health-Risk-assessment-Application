@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Risk Assessment</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4 text-center">Health Assessment</h2>
+      <form method="POST" action="/submit">
+        <div class="mb-3">
+          <lable for="fname">First Name:</lable>
+          <br />
+          <input
+            type="text"
+            class="form-control"
+            name="fname"
+            placeholder="Enter first name"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <lable for="lname">Last Name:</lable>
+          <br />
+          <input
+            type="text"
+            class="form-control"
+            name="lname"
+            placeholder="Enter last name "
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <lable for="age">Enter Age:</lable>
+          <input
+            type="number"
+            class="form-control"
+            name="age"
+            placeholder="Enter age"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <lable for="weight">Enter Weight:</lable>
+          <input
+            type="number"
+            class="form-control"
+            name="weight"
+            placeholder="Enter weight (kgs)"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <lable for="Height">Enter Height:</lable>
+          <input
+            type="number"
+            class="form-control"
+            name="height"
+            placeholder="Enter height (in cm)"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <lable for="Blood Pressure(s)">Enter Blood Pressure(Systolic):</lable>
+          <input
+            type="number"
+            class="form-control"
+            name="bp_s"
+            placeholder="Enter your Systolic Pressure"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <lable for="Blood Pressure(d)"
+            >Enter Blood Pressure(Diastolic):</lable
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bp_d"
+            placeholder="Enter your Diastolic Pressure"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <lable for="Cholesterol">Enter Cholesterol:</lable>
+          <input
+            type="number"
+            class="form-control"
+            name="chol"
+            placeholder="Enter your Cholesterol"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

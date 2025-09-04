@@ -23,23 +23,56 @@ A simple **Flask web application** that allows users to input their health detai
 
 ---
 
----
-
 ## ⚡ Installation & Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/health-risk-assessment.git
    cd health-risk-assessment
 ## 2. Create a virtual environment & activate it:
- ** python -m venv venv
+  ```bash
+  python -m venv venv
    source venv/bin/activate   # Mac/Linux
    venv\Scripts\activate      # Windows
+ ```
+---
+## 3.Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+---
+## 4.Run the application:
+```bash
+flask run
 
+```
+---
+## 5.Open your browser and go to:
+```
+http://127.0.0.1:5000/
+```
+---
+<img width="1873" height="1025" alt="Screenshot 2025-09-04 133656" src="https://github.com/user-attachments/assets/228d96ae-4ee0-4482-8a8f-e0063309720f" />
 
+---
+<img width="1918" height="1077" alt="Screenshot 2025-09-04 133719" src="https://github.com/user-attachments/assets/30e9383a-199c-4288-993c-fc5c16d4ffcd" />
 
+---
+🤝 Contributing
 
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
 
+---
+📜 License
 
-<img width="1918" height="1077" alt="Screenshot 2025-09-04 133719" src="https://github.com/user-attachments/assets/167222a1-464e-4418-aae5-90aa48063843" />
-<img width="1873" height="1025" alt="Screenshot 2025-09-04 133656" src="https://github.com/user-attachments/assets/947ba4f3-bed6-4471-9c74-3194a257cecc" />
+This project is licensed under the MIT License – see the LICENSE 
+ file for details.
 
+ ---
+ ✨ Author
+ 
+ ## Devanshu Garad
+ 
+ [![Visit My GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/Devanshu-1105)
+
+---
+ [![Visit My LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue)](https://www.linkedin.com/in/devanshu-garad-a33a3623a/)

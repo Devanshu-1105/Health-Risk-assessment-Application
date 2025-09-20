@@ -1,7 +1,7 @@
 from flask import Flask , request , render_template 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-
+import __init__
 
 
 app = Flask(__name__)

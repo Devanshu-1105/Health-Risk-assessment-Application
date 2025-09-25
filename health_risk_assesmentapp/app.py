@@ -1,6 +1,7 @@
-from flask import Flask , request , render_template 
+from flask import Flask , request , render_template, redirect, url_for, flash, session 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
@@ -11,7 +12,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'Hello World!'
 
 db = SQLAlchemy(app)
-
+#user_login db
+class AuthUser(db.model):
+    id = db.Column(db.Integer,primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(200), nullable=False)
+    
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+    
 #dbModel
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key = True) 
@@ -23,6 +36,8 @@ class Users(db.Model):
     bp_s =  db.Column(db.Integer, nullable = False)
     bp_d =  db.Column(db.Integer, nullable = False)
     chol =  db.Column(db.Integer, nullable = False)
+    
+    
 
 
 
@@ -30,6 +45,30 @@ class Users(db.Model):
 def home():
     return render_template("index.html")
  
+
+@app.route("/register" , meethods=["GET", "POST"])
+def register():
+    if request.method =="POST":
+        username = request.form["username"]
+        email= request.form["email"]
+        password = request.form["password"]
+        #checking if the user already exists:
+        
+        existing_user = AuthUser.query.filter_by(username=username).first()
+        if existing_user:
+            flash("Username already taken")
+            return redirect(url_for("register"))
+        
+        new_user =AuthUser(username=username, email=email)
+        new_user.set_password(password)
+        
+        db.session.add(new_user)
+        db.session.commit()
+        
+        flash("Registration successful Please login.")
+        
+        return redirect(url_for("login"))
+    return render_template("register.html")     
  
 
 @app.route('/submit', methods=["GET","POST"])

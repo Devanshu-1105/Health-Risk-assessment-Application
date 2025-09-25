@@ -1,7 +1,7 @@
 from flask import Flask , request , render_template 
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-import __init__
+
 
 
 app = Flask(__name__)
@@ -11,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'Hello World!'
 
 db = SQLAlchemy(app)
+
 #dbModel
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key = True) 
@@ -132,4 +133,6 @@ def submit():
     return render_template("results.html", fname=fname, lname=lname, age=age, risk_status=risk_status, risk_score = risk_score, chol=chol, bp_s=bp_s , bp_d=bp_d, bmi_status=bmi_status,chol_status=chol_status, bp_status=bp_status, guidance=guidance, now=datetime.now(), bmi=round(bmi,2))
 
 if __name__ == '__main__': 
+  with app.app_context():
+      db.create_all()
   app.run(debug = True)
